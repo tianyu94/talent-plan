@@ -46,11 +46,7 @@ impl KvStore {
     /// ```
     pub fn get(&self, key: String) -> Option<String> {
         let option = self.map.get(&key);
-        if let Some(s) = option {
-            Some(s.to_string())
-        } else {
-            None
-        }
+        option.map(|s| s.to_string())
     }
 
     /// # Examples
